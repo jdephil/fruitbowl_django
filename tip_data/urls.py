@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from AppTwo import views
+from tip_data import views
 
 urlpatterns = [
-    url('', views.api, name='api')
+    url('', views.api, name='api'),
+    url('', views.index, name='index')
 ]
