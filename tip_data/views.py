@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from .models import Tip
+from .serializers import TipSerializer
+from rest_framework import generics
 
 # Create your views here.
 def index(request):
@@ -8,3 +11,8 @@ def index(request):
 def api(request):
   api_dict = {'api_page': "API Data"}
   return render(request, 'tip_data/api.html', context=api_dict)
+
+class TipListCreate(generics.ListCreateAPIView):
+  queryset = Tip.objects.all()
+  serializer_class = TipSerializer
+  
